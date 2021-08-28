@@ -13,6 +13,7 @@ class APIVpnIPsecPhase2Create extends APIModel {
     public function validate_payload() {
         $this->validated_data = $this->initial_data;
         $this->validated_data["uniqid"] = uniqid();
+        $this->validated_data["reqid"] = ipsec_new_reqid();
     }
 
     public function action() {
