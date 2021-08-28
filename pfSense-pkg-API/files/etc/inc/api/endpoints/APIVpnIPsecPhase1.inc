@@ -12,5 +12,9 @@ class APIVpnIPsecPhase1 extends APIEndpoint {
     protected function get() {
         return (new APIVpnIPsecPhase1Read())->call();
     }
+
+    protected function post() {
+        return (new APIVpnIPsecPhase1Create())->call();
+    }
     
 }
