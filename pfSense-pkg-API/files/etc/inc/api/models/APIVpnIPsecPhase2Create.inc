@@ -19,7 +19,16 @@ class APIVpnIPsecPhase2Create extends APIModel {
     public function action() {
         $this->config["ipsec"]["phase2"][] = $this->validated_data;
         $this->write_config();
+        $this->apply();
         return APIResponse\get(0, $this->validated_data);
     }
+
+    public function apply() {
+        # Mark the firewall subsystem as changed, this will be cleared if applied
+        mark_subsystem_dirty('ipsec');
+        ipsec_configure();
+        clear_subsystem_dirty('ipsec');
+    }
+
     
 }
