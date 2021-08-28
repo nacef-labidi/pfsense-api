@@ -18,7 +18,7 @@ class APIVpnIPsecPhase1Create extends APIModel {
     public function action() {
         $this->config["ipsec"]["phase1"][] = $this->validated_data;
         $this->write_config();
-        return APIResponse\get(0, $this->validated_data);
+        return APIResponse\get(0, $this->initial_data);
     }
     
 }
