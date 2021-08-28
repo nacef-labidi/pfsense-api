@@ -1,7 +1,7 @@
 <?php
 require_once("api/framework/APIEndpoint.inc");
 
-class APIVpnIPsec extends APIEndpoint {
+class APIVpnIPsecPhase1 extends APIEndpoint {
 
     public function __construct() {
         parent::__construct();
